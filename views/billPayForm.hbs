@@ -1,0 +1,42 @@
+<div id="gcc-billPayForm">
+    <script>
+        function handleiFrameVisibility() {
+            document.getElementById('gcc-checkoutContainer').style.display = 'block';
+            document.getElementById('gcc-billPayForm').style.display = 'none';
+        }
+    </script>
+    <div class="ccHeader">
+        <div class="ccHeaderImg">
+        </div>
+    </div>
+    <form id="gcc-form" method="post" action="https://securepayments.cardconnect.com/hpp/payment/" target="iframeCheckout" onsubmit="handleiFrameVisibility()">
+        <h2>Online Bill Pay</h2>
+
+        <!-- Prod creds -->
+<!--
+        <input type="hidden" name="ccId" value="ArSjNri9Fjn77lgLmaEjBE0HwOJufOB5mGvZ77AizGgZj7KpTzlQhWADf9js6oHFDErgopE9vG98qhM8oEW8RI8ZmImtgNLdr7Ljwaar78HI44x8gXE39IdcHHKjwRE85zzRUpnVywfhTyWYu28i5iJR36cBQU3Gh6BBKu5Y6GY=">
+-->
+        <!-- Test creds -->
+        <input type="hidden" name="ccId"
+               value="kEyvTIehNHAeWwDpblCLyTisSa4a62ywJC7Aam623HCMCmbn7m8ZkXwMnlPSd3bsArqefNj4Pq46Xtnxi6neZEzp/lL87SfiIzlg5YEaFcOmFa3XbcvVP0JeFl36ax0SGv73E9Q2Ez2aouIUvsAyRiNUUmFm8evaCQg8KcB/ScY="/>
+
+        <input type="hidden" name="ccCssUrl" value="{{ccCssUrl}}">
+        <input type="hidden" name="ccPostbackUrl" value="{{ccPostbackUrl}}">
+        <input type="hidden" name="ccSite" value="fts">
+        <input type="hidden" name="ccCardTypes" value="AMEX|DISC|MC|VISA">
+        <div>
+            <label for="patient_name">Patient Name<span class="gcc-required">*</span></label>
+            <input class="form-control" type="text" name="patient_name" id="patient_name" placeholder="Enter Patient Name" required/>
+        </div>
+        <div>
+            <label for="invoiceNumber">Invoice Number<span class="gcc-required">*</span></label>
+            <input class="form-control" type="text" name="invoiceNumber" id="invoiceNumber" placeholder="Invoice Number" required/>
+        </div>
+        <div align="center">
+            <input type="submit" class="ccFormSubmit" value="Continue to card information">
+        </div>
+    </form>
+</div>
+<div id="gcc-checkoutContainer">
+    <iframe id="iframeCheckout" name="iframeCheckout"></iframe>
+</div>
