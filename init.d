@@ -10,6 +10,7 @@
 # sudo cp ./init.d /etc/init.d/gocardconnect
 # sudo chmod a+x /etc/init.d/gocardconnect
 # sudo chkconfig --add gocardconnect
+# chkconfig
 ##############
 
 # Below is the source function library, leave it be
@@ -22,7 +23,7 @@ export NODE_PATH=$NODE_PATH:/usr/lib/node_modules
 
 
 start(){  
-        NODE_ENV=production forever start -l /home/ec2-user/logs/forever.log -o /home/ec2-user/logs/out.log -e /home/ec2-user/logs/err.log /home/ec2-user/code/gocardconnect/server.js
+        NODE_ENV=production forever start -a -l /home/ec2-user/logs/forever.log -o /home/ec2-user/logs/out.log -e /home/ec2-user/logs/err.log /home/ec2-user/code/gocardconnect/server.js
 }
 
 stop(){  
@@ -30,7 +31,7 @@ stop(){
 }
 
 restart(){  
-        NODE_ENV=production forever restart -l /home/ec2-user/logs/forever.log -o /home/ec2-user/logs/out.log -e /home/ec2-user/logs/err.log /home/ec2-user/code/gocardconnect/server.js
+        NODE_ENV=production forever restart -a -l /home/ec2-user/logs/forever.log -o /home/ec2-user/logs/out.log -e /home/ec2-user/logs/err.log /home/ec2-user/code/gocardconnect/server.js
 }
 
 case "$1" in  

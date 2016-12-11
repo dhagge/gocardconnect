@@ -6,8 +6,8 @@ var path = require('path'),
     hbs  = require('express-hbs'),
     app = express();
 
-var environment = process.env.NODE_ENV
-console.log('Runnning with environment ' + environmentfo);
+var environment = process.env.NODE_ENV;
+console.log('Runnning with environment ' + environment);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
