@@ -52,7 +52,7 @@ app.get('/', function(req, res) {
 
     // if env is development use the dev creds
     if (environment === 'development' || !environment) {
-        conf[ccId] = 'kEyvTIehNHAeWwDpblCLyTisSa4a62ywJC7Aam623HCMCmbn7m8ZkXwMnlPSd3bsArqefNj4Pq46Xtnxi6neZEzp/lL87SfiIzlg5YEaFcOmFa3XbcvVP0JeFl36ax0SGv73E9Q2Ez2aouIUvsAyRiNUUmFm8evaCQg8KcB/ScY=';
+        conf.ccId = 'kEyvTIehNHAeWwDpblCLyTisSa4a62ywJC7Aam623HCMCmbn7m8ZkXwMnlPSd3bsArqefNj4Pq46Xtnxi6neZEzp/lL87SfiIzlg5YEaFcOmFa3XbcvVP0JeFl36ax0SGv73E9Q2Ez2aouIUvsAyRiNUUmFm8evaCQg8KcB/ScY=';
     }
     res.render('billPayForm', conf);
 

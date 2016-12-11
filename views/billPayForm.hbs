@@ -12,14 +12,7 @@
     <form id="gcc-form" method="post" action="https://securepayments.cardconnect.com/hpp/payment/" target="iframeCheckout" onsubmit="handleiFrameVisibility()">
         <h2>Online Bill Pay</h2>
 
-        <!-- Prod creds -->
-<!--
-        <input type="hidden" name="ccId" value="ArSjNri9Fjn77lgLmaEjBE0HwOJufOB5mGvZ77AizGgZj7KpTzlQhWADf9js6oHFDErgopE9vG98qhM8oEW8RI8ZmImtgNLdr7Ljwaar78HI44x8gXE39IdcHHKjwRE85zzRUpnVywfhTyWYu28i5iJR36cBQU3Gh6BBKu5Y6GY=">
--->
-        <!-- Test creds -->
-        <input type="hidden" name="ccId"
-               value="kEyvTIehNHAeWwDpblCLyTisSa4a62ywJC7Aam623HCMCmbn7m8ZkXwMnlPSd3bsArqefNj4Pq46Xtnxi6neZEzp/lL87SfiIzlg5YEaFcOmFa3XbcvVP0JeFl36ax0SGv73E9Q2Ez2aouIUvsAyRiNUUmFm8evaCQg8KcB/ScY="/>
-
+        <input type="hidden" name="ccId" value="{{ccId}}"/>
         <input type="hidden" name="ccCssUrl" value="{{ccCssUrl}}">
         <input type="hidden" name="ccPostbackUrl" value="{{ccPostbackUrl}}">
         <input type="hidden" name="ccSite" value="fts">
