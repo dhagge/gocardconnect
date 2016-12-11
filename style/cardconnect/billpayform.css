@@ -52,39 +52,6 @@ div {
     margin-top:10px;
 }
 
-input[type="text"],
-select:not(#month):not(#year),
-textarea {
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-    color: #555;
-    display: block;
-    font-size: 1em;
-    height: 34px;
-    line-height: 1.42857;
-    padding: 6px 12px;
-    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-    width: 100%;
-}
-
-select#month, select#year {
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-    color: #555;
-    display: inline-block;
-    font-size: 1em;
-    height: 34px;
-    line-height: 1.42857;
-    padding: 6px 12px;
-    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-}
-
 input[type="submit"],
 input[type="button"] {
     -moz-user-select: none;
@@ -137,16 +104,6 @@ label {
     max-width: 100%;
 }
 
-button {
-    background-color: #9ECEDB;
-    color: #184552;
-    cursor:pointer;
-}
-
-button:hover {
-    background-color: #CBEAF2;
-}
-
 
 .gcc-required {
     color:#dd6666;
@@ -157,7 +114,6 @@ button:hover {
     margin:0 auto;
 }
 
-/* Header */
 .ccHeader {
     width: 100%;
     height: 53px;
@@ -181,111 +137,6 @@ button:hover {
 
 .ccPaymentForm  {
     text-align: center;
-}
-
-/* 3D Secure */
-.cc3DSOverlay {
-    background: #000;
-    opacity:0.6;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top:0;
-    left:0;
-    display:none;
-    z-index: 999998;
-}
-
-.cc3DSWindow {
-    display: none;
-    top: 50%;
-    left: 50%;
-    margin-left: -200px;
-    margin-top: -200px;
-    position: absolute;
-    background:#FFF;
-    border: 1px solid #555;
-    box-shadow: 2px 2px 40px #222;
-    z-index: 999999;
-}
-
-.cc3DSiFrame {
-    width: 400px;
-    height: 400px;
-    margin:0 auto;
-    z-index: 999999;
-}
-
-/* Payment form */
-.ccPaymentFormError {
-    color: red;
-}
-
-/* Fieldsets */
-.ccPaymentFieldset,
-.ccBillingFieldset {
-    border: 0;
-    padding: 0;
-    margin-bottom: 20px;
-}
-
-.ccPaymentLegend, .ccBillingLegend {
-    color:#003f62;
-    font-size: 1.25em;
-    font-family: "Lato Bold",sans-serif;
-}
-
-/* General form classes */
-.ccFormRow {
-    
-}
-
-.ccFormLabel {
-    display: inline-block;
-    font-weight: 700;
-    margin-bottom: 5px;
-    max-width: 100%;
-}
-
-.ccFormLabelError {
-    display: inline-block;
-    font-weight: 700;
-    margin-bottom: 5px;
-    max-width: 100%;
-    color:red;
-}
-
-.ccFormField {
-    
-}
-
-.ccFormFieldError {
-    border: 1px solid red;
-}
-
-.ccFormError {
-    margin-left: .5em;
-    color: red;
-}
-
-.cc3DSOverlay {
-    display:none;
-}
-
-.cc3DSWindow {
-    display:none;
-}
-
-.cc3DSiFrame {
-    display:none;
-}
-
-.ccPowerdBy {
-    display: none;
-}
-
-.ccCardTypeLabel {
-    display: none;
 }
 
 .ccRefNumber {

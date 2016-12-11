@@ -22,9 +22,13 @@ app.get('/style/*', (req, res) => {
     res.sendFile(req.params[0], { root: __dirname + '/style' });
 });
 
+app.get('/confirmation/test', (req, res) => {
+    res.render('manualConfirmationTest');
+});
+
 // serve up all /forms requests statically from app
 function serveConfirmation(req, res) {
-    console.log(req.body);
+    //console.log(req.body);
     var conf = {
         formStyle: '/style/cardconnect/billpayform.css',
         resp: req.body

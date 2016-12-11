@@ -1,0 +1,31 @@
+<div id="gcc-billPayForm">
+    <script>
+        function handleSubmit() {
+            var practice = document.getElementById('practice').value;
+            document.getElementById('gcc-form').action = '/confirmation/' + practice;
+        }
+    </script>
+    <div class="ccHeader">
+        <div class="ccHeaderImg">
+        </div>
+    </div>
+    <form id="gcc-form" method="post" action="/" onclick="handleSubmit()">
+        <h2>Manual Payment Confirmation Test</h2>
+
+        <div>
+            <label for="practice">Patient Name<span class="gcc-required">*</span></label>
+            <input class="form-control" type="text" name="practice" id="practice" placeholder="Enter Practice" required/>
+        </div>
+        <div>
+            <label for="retref">Reference Number</label>
+            <input class="form-control" type="text" name="retref" id="retref" placeholder="Reference Number"/>
+        </div>
+        <div>
+            <label for="errorDesc">Error</label>
+            <input class="form-control" type="text" name="errorDesc" id="errorDesc" placeholder="Error"/>
+        </div>
+        <div>
+            <input type="submit" class="ccFormSubmit" value="Go Test!">
+        </div>
+    </form>
+</div>
