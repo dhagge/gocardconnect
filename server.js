@@ -34,7 +34,8 @@ function serveConfirmation(req, res) {
     //console.log(req.body);
     var conf = {
         formStyle: '/style/cardconnect/billpayform.css',
-        resp: req.body
+        resp: req.body,
+        hasError: (req.body.errorCode !== '00')
     }
     res.render('confirmation', conf);
 }
