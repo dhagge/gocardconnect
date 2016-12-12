@@ -6,7 +6,7 @@
 # description: Node.js service for gocardconnect billpay
 
 ##############
-# Steps (perform every time this file is modified):
+# Steps (need only perform step 1 when file is modified):
 # sudo cp ./init.d /etc/init.d/gocardconnect
 # sudo chmod a+x /etc/init.d/gocardconnect
 # sudo chkconfig --add gocardconnect
