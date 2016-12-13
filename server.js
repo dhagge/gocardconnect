@@ -7,6 +7,7 @@ var path = require('path'),
     less = require('less'),
     path = require('path'),
     fs = require('fs'),
+    config = require('./lib/config')
     app = express();
 
 var environment = process.env.NODE_ENV;
@@ -88,7 +89,7 @@ app.get('/:practice', (req, res) => {
         formStyle: getFormStyle(practice),
         ccCssUrl: `https://${req.hostname}/style/${practice}/tfp-billpayform.css`,
         ccPostbackUrl: `https://${req.hostname}/confirmation/${practice}`,
-        ccId: 'ArSjNri9Fjn77lgLmaEjBE0HwOJufOB5mGvZ77AizGgZj7KpTzlQhWADf9js6oHFDErgopE9vG98qhM8oEW8RI8ZmImtgNLdr7Ljwaar78HI44x8gXE39IdcHHKjwRE85zzRUpnVywfhTyWYu28i5iJR36cBQU3Gh6BBKu5Y6GY='
+        ccId: config[practice]
     }
 
     // if env is development use the dev creds
