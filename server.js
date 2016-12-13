@@ -89,7 +89,7 @@ app.get('/:practice', (req, res) => {
         formStyle: getFormStyle(practice),
         ccCssUrl: `https://${req.hostname}/style/${practice}/tfp-billpayform.css`,
         ccPostbackUrl: `https://${req.hostname}/confirmation/${practice}`,
-        ccId: config[practice]
+        ccId: config[practice].ccId
     }
 
     // if env is development use the dev creds
