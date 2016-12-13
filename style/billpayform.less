@@ -7,9 +7,9 @@
 }
 
 body {
-    background-color: #FFF;
-    font-family: 'Lato', sans-serif;
-    font-size: 16px;
+    background-color: @body-background-color;
+    font-family: @default-font-family;
+    font-size: @default-font-size;
 }
 
 a, a:hover, input, input:hover {
@@ -27,7 +27,6 @@ a, a:hover, input, input:hover {
     min-width:300px;
     max-width:600px;
     margin:auto;
-    font-family: 'Lato', sans-serif;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
     padding:20px;
     border-radius: 5px;
@@ -37,19 +36,19 @@ a, a:hover, input, input:hover {
 }
 
 h2 {
-    color:#003f62;
+    color: @color-primary;
     font-size:2em;
     line-height: 1em;
     margin:0;
-    font-family: 'Lato Bold', sans-serif;
+    font-family: @header-font-family;
 }
 
 p {
-    color:#222222;
+    color: @color-text;
 }
 
 div {
-    margin-top:10px;
+    margin-top: 10px;
 }
 
 input[type="text"], select:not(#month):not(#year), textarea {
@@ -58,7 +57,6 @@ input[type="text"], select:not(#month):not(#year), textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-    color: #555;
     display: block;
     font-size: 1em;
     height: 34px;
@@ -72,7 +70,6 @@ input[type="submit"],
 input[type="button"] {
     -moz-user-select: none;
     background-image: none;
-    border: 1px solid #f8f8f8;
     border-radius: 4px;
     cursor: pointer;
     display: inline-block;
@@ -91,7 +88,7 @@ input[type="button"] {
 
 input[type="submit"].ccFormSubmit,
 input[type="button"].ccFormSubmit {
-    background-color: #003f62;
+    background-color: @color-primary;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -99,7 +96,7 @@ input[type="button"].ccFormSubmit {
 
 input[type="submit"].ccFormSubmit:hover,
 input[type="button"].ccFormSubmit:hover {
-    background-color: #dd5f14;
+    background-color: @color-secondary;
     -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
     -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
@@ -107,7 +104,7 @@ input[type="button"].ccFormSubmit:hover {
 
 input[type="submit"].ccFormSubmit:focus,
 input[type="button"].ccFormSubmit:focus {
-    background-color: #008ad8;
+    background-color: @color-tertiary;
     -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
     -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
@@ -122,7 +119,7 @@ label {
 
 
 .gcc-required {
-    color:#dd6666;
+    color: #dd6666;
 }
 
 .ccContent {
@@ -157,7 +154,7 @@ label {
 
 .ccRefNumber {
     margin-top: 10px;
-    color: #003f62;
+    color: @color-primary;
     font-size: 2em;
     line-height: 1em;
 }

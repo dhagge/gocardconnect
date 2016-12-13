@@ -41,7 +41,10 @@ app.get('/style/*', (req, res) => {
                 return;
             }
 
-            less.render(practiceLess, (err, css) => {
+            var options = {
+                filename: filePath
+            };
+            less.render(practiceLess, options, (err, css) => {
                 if (err) {
                     res.status(500).send('Internal server error');
                     console.log('Could not render less ' + filePath, err);
@@ -61,12 +64,16 @@ app.get('/confirmation/test', (req, res) => {
     res.render('manualConfirmationTest');
 });
 
+function getFormStyle(practice) { // our base form styles
+    return `/style/${practice}/billpayform.css`;
+}
+
 // serve up all /forms requests statically from app
 function serveConfirmation(req, res) {
     //console.log(req.body);
     var practice = req.params.practice;
     var conf = {
-        formStyle: `/style/${practice}/billpayform.css`,
+        formStyle: getFormStyle(practice),
         resp: req.body,
         hasError: (req.body.errorCode !== '00')
     }
@@ -78,7 +85,7 @@ app.post('/confirmation/:practice', serveConfirmation);
 app.get('/:practice', (req, res) => {
     var practice = req.params.practice;
     var conf = {
-        formStyle: `/style/${practice}/billpayform.css`,
+        formStyle: getFormStyle(practice),
         ccCssUrl: `https://${req.hostname}/style/${practice}/tfp-billpayform.css`,
         ccPostbackUrl: `https://${req.hostname}/confirmation/${practice}`,
         ccId: 'ArSjNri9Fjn77lgLmaEjBE0HwOJufOB5mGvZ77AizGgZj7KpTzlQhWADf9js6oHFDErgopE9vG98qhM8oEW8RI8ZmImtgNLdr7Ljwaar78HI44x8gXE39IdcHHKjwRE85zzRUpnVywfhTyWYu28i5iJR36cBQU3Gh6BBKu5Y6GY='

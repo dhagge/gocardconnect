@@ -5,8 +5,8 @@
 }
 
 body {
-    font-family: 'Lato', sans-serif;
-    font-size: 16px;
+    font-family: @default-font-family;
+    font-size: @default-font-size;
 }
 
 a, a:hover, input, input:hover {
@@ -22,7 +22,7 @@ a, a:hover, input, input:hover {
     margin:auto;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
     padding:20px;
-    background-color: #F5F5F5;
+    background-color: @form-background-color;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -40,19 +40,19 @@ li.ccPaymentFormError {
 }
 
 h2 {
-    color: #003f62;
+    color: @color-primary;
     font-size: 2em;
     line-height: 1em;
     margin:0;
-    font-family: 'Lato Bold', sans-serif;
+    font-family: @header-font-family;
 }
 
 p {
-    color:#222222;
+    color: @color-text;
 }
 
 div {
-    margin-top:10px;
+    margin-top: 10px;
 }
 
 input[type="text"],
@@ -122,15 +122,15 @@ input[type="button"].focus, input[type="button"]:focus, input[type="button"]:hov
 
 input[type="submit"].ccFormSubmit,
 input[type="button"].ccFormSubmit {
-    background-color: #003f62;
-    color: #fff;
+    background-color:  @color-primary;
+    color: @color-button-text;
     padding: 10px 20px;
     border: none;
 }
 
 input[type="submit"].ccFormSubmit:hover,
 input[type="button"].ccFormSubmit:hover {
-     background-color: #dd5f14;
+     background-color: @color-secondary;
     -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
     -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
@@ -138,7 +138,7 @@ input[type="button"].ccFormSubmit:hover {
 
 input[type="submit"].ccFormSubmit:focus,
 input[type="button"].ccFormSubmit:focus {
-    background-color: #008ad8;
+    background-color: @color-tertiary;
     -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
     -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
@@ -146,7 +146,7 @@ input[type="button"].ccFormSubmit:focus {
 
 input[type="submit"].ccFormCancel,
 input[type="button"].ccFormCancel {
-    color: #fff;
+    color: @color-button-text;
     padding: 10px 20px;
     margin-right: 5px;
     border: none;
@@ -177,12 +177,12 @@ button:hover {
 }
 
 .gcc-required {
-    color:#dd6666;
+    color: #dd6666;
 }
 
 .ccBody {
     background-color: transparent;
-    color:#222222;
+    color: @color-text;
 }
 
 .ccContent {
@@ -198,7 +198,7 @@ button:hover {
 }
 
 .ccHeaderImg {
-    background-image: url("//s3-us-west-2.amazonaws.com/gcconlinebillpay/gocarconnect-logo.png");
+    background-image: @header-background-image;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -257,7 +257,7 @@ button:hover {
 }
 
 .ccPaymentLegend, .ccBillingLegend {
-    color:#003f62;
+    color: @color-primary;
     font-size: 1.25em;
     font-family: "Lato Bold",sans-serif;
 }
