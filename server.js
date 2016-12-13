@@ -42,8 +42,8 @@ function serveConfirmation(req, res) {
 app.get('/confirmation/:practice', serveConfirmation);
 app.post('/confirmation/:practice', serveConfirmation);
 
-app.get('/', function(req, res) {
-    var practice = 'cardconnect';
+app.get('/:practice', function(req, res) {
+    var practice = req.params.practice;
     var conf = {
         formStyle: `/style/${practice}/billpayform.css`,
         ccCssUrl: `https://${req.hostname}/style/${practice}/tfp-billpayform.css`,
