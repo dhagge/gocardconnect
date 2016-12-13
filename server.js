@@ -4,6 +4,9 @@ var path = require('path'),
     bodyParser = require('body-parser'),
     express = require('express'),
     hbs  = require('express-hbs'),
+    less = require('less'),
+    path = require('path'),
+    fs = require('fs'),
     app = express();
 
 var environment = process.env.NODE_ENV;
@@ -18,11 +21,40 @@ app.engine('hbs', hbs.express4({
   partialsDir: __dirname + '/views/partials',
   layoutsDir: __dirname + '/views/layouts'
 }));
-app.set('views', path.join(__dirname,'/views'));
+app.set('views', path.join(__dirname, '/views'));
+
+// serve up all /img statically
+app.get('/img/*', (req, res) => {
+    res.sendFile(req.params[0], { root: __dirname + '/img' });
+});
 
 // serve up all /styles
 app.get('/style/*', (req, res) => {
-    res.sendFile(req.params[0], { root: __dirname + '/style' });
+    try {
+        var practice = req.params.practice;
+        var filePath = path.join(__dirname, req.url.replace('.css', '.less'));
+
+        fs.readFile(filePath, "utf8", (err, practiceLess) => {
+            if (err) {
+                res.status(404).send('Not found');
+                console.log('Could not open ' + filePath, err);
+                return;
+            }
+
+            less.render(practiceLess, (err, css) => {
+                if (err) {
+                    res.status(500).send('Internal server error');
+                    console.log('Could not render less ' + filePath, err);
+                    return;
+                }
+                res.header('Content-type', 'text/css');
+                res.send(css.css);
+            });
+        });
+    } catch (err) {
+        console.log('Could not serve css: ' + err);
+        res.status(500).send('Internal server error');
+    }
 });
 
 app.get('/confirmation/test', (req, res) => {
@@ -32,8 +64,9 @@ app.get('/confirmation/test', (req, res) => {
 // serve up all /forms requests statically from app
 function serveConfirmation(req, res) {
     //console.log(req.body);
+    var practice = req.params.practice;
     var conf = {
-        formStyle: '/style/cardconnect/billpayform.css',
+        formStyle: `/style/${practice}/billpayform.css`,
         resp: req.body,
         hasError: (req.body.errorCode !== '00')
     }
@@ -42,7 +75,7 @@ function serveConfirmation(req, res) {
 app.get('/confirmation/:practice', serveConfirmation);
 app.post('/confirmation/:practice', serveConfirmation);
 
-app.get('/:practice', function(req, res) {
+app.get('/:practice', (req, res) => {
     var practice = req.params.practice;
     var conf = {
         formStyle: `/style/${practice}/billpayform.css`,
@@ -60,4 +93,5 @@ app.get('/:practice', function(req, res) {
 });
 
 app.listen(8080);
+//console.log('Starting with routes: ' + JSON.stringify(app._router.stack, null, '  '));
 console.log('Server listening on http://localhost:8080');
