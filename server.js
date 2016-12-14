@@ -84,6 +84,10 @@ app.get('/confirmation/:practice', serveConfirmation);
 app.post('/confirmation/:practice', serveConfirmation);
 
 app.get('/:practice', (req, res) => {
+    if(req.url === '/favicon.ico') {
+        res.status(404).send('Not Found');
+    }
+
     var practice = req.params.practice;
     var conf = {
         formStyle: getFormStyle(practice),
