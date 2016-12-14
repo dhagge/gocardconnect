@@ -18,8 +18,8 @@
         <input type="hidden" name="ccSite" value="fts">
         <input type="hidden" name="ccCardTypes" value="AMEX|DISC|MC|VISA">
         <div>
-            <label for="patient_name">Patient Name<span class="gcc-required">*</span></label>
-            <input class="form-control" type="text" name="patient_name" id="patient_name" placeholder="Enter Patient Name" required/>
+            <label for="{{entityCCKey}}">{{entityIdentifierText}}<span class="gcc-required">*</span></label>
+            <input class="form-control" type="text" name="{{entityCCKey}}" id="{{entityCCKey}}" placeholder="Enter {{entityIdentifierText}}" required/>
         </div>
         <div>
             <label for="invoiceNumber">Invoice Number<span class="gcc-required">*</span></label>

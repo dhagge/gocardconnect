@@ -93,7 +93,9 @@ app.get('/:practice', (req, res) => {
         formStyle: getFormStyle(practice),
         ccCssUrl: `https://${req.hostname}/style/${practice}/tfp-billpayform.css`,
         ccPostbackUrl: `https://${req.hostname}/confirmation/${practice}`,
-        ccId: config[practice].ccId
+        ccId: config[practice].ccId,
+        entityIdentifierText: config[practice].entityIdentifierText || 'Patient Name',
+        entityCCKey: config[practice].entityIdentifierCardConnectKey || 'patient_name' // the key that is passed to cardconnect as custom data
     }
 
     // if env is development use the dev creds
